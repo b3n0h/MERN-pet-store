@@ -1,0 +1,9 @@
+.createContainer {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+}
+
+input {
+  margin-bottom: 10px;
+}
