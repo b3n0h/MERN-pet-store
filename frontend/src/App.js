@@ -5,6 +5,8 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import PetsIcon from '@mui/icons-material/Pets';
 import CreatePet from './components/CreatePet';
+import DeletePet from './components/DeletePet';
+import EditPet from './components/EditPet';
 
 function App() {
   const [pets, setPets] = useState([])
@@ -29,7 +31,9 @@ function App() {
       <h1>Welcome to Pets <PetsIcon /></h1>
       <Routes>
         <Route path='/' element={<Home pets={pets} />} />
-        <Route path='/create-pet' element={<CreatePet />} />
+        <Route path='/pets/create' element={<CreatePet />} />
+        <Route path='/pets/edit/:id' element={<EditPet />} />
+        <Route path='/pets/delete/:id' element={<DeletePet />} />
       </Routes>
     </div>
   );

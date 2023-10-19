@@ -1,13 +1,11 @@
 import React, { useState } from "react"
 import './CreatePet.css'
 import axios from "axios"
-import { useNavigate, Navigate } from "react-router-dom"
 
 const CreatePet = () => {
   const [name, setName] = useState('')
   const [breed, setBreed] = useState('')
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
 
   const handleSavePet = () => {
     const newPet = {
@@ -19,7 +17,7 @@ const CreatePet = () => {
       .post('http://localhost:5555/pets', newPet)
       .then(() => {
         setLoading(false)
-        navigate('/')
+        window.location.reload()
       })
       .catch((error) => {
         setLoading(false)
@@ -29,8 +27,7 @@ const CreatePet = () => {
 
   return (
     <div className="createContainer">
-      <h3>Create a new pet</h3>
-      {loading ? 'Fetching data' : ''}
+      <h2>Create a new pet</h2>
       <label>Name</label>
       <input value={name} onChange={(e) => setName(e.target.value)} type="text" />
 

@@ -4,6 +4,8 @@
   flex-wrap: wrap;
 }
 
-.card {
-  
+svg {
+  color: black;
+  padding-top: 10px
+  /* width: 10px; */
 }
