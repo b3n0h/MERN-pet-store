@@ -7,8 +7,6 @@ const Home = (props) => {
   return (
     <div className="homeContainer">
       <CreatePet />
-
-      
       <PetCard pets={props.pets} />
     </div>
   )

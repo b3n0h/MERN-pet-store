@@ -26,10 +26,10 @@ export default function PetCard(props) {
                 {pet.breed}
               </Typography>
               <CardActions sx={{ padding: '10px 0 0 0' }}>
-                <Link to='/pets/edit/:id'>
+                <Link to={`/pets/edit/${pet._id}`}>
                   <EditIcon sx={{ width: '20px', paddingRight: '10px' }} />
                 </Link>
-                <Link to='/pets/delete/:id'>
+                <Link to={`/pets/delete/${pet._id}`}>
                   <DeleteIcon sx={{ width: '20px', paddingRight: '10px' }} />
                 </Link>
               </CardActions>

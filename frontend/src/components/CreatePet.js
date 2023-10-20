@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import './CreatePet.css'
+import classes from './CreatePet.module.css'
 import axios from "axios"
 
 const CreatePet = () => {
@@ -26,7 +26,7 @@ const CreatePet = () => {
   }
 
   return (
-    <div className="createContainer">
+    <div className={classes.createContainer}>
       <h2>Create a new pet</h2>
       <label>Name</label>
       <input value={name} onChange={(e) => setName(e.target.value)} type="text" />
