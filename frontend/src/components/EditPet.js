@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import classes from './EditPet.module.css'
 
@@ -9,6 +9,7 @@ const EditPet = () => {
   const [breed, setBreed] = useState('')
 
   const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios
@@ -30,7 +31,6 @@ const EditPet = () => {
     axios
       .put(`http://localhost:5555/pets/${id}`, data)
       .then(() => {
-
       })
       .catch((err) => {
         console.log(err)

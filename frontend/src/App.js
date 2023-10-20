@@ -9,28 +9,12 @@ import DeletePet from './components/DeletePet';
 import EditPet from './components/EditPet';
 
 function App() {
-  const [pets, setPets] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    try {
-      axios
-        .get('http://localhost:5555/pets')
-        .then((res) => {
-          setPets(res.data.data)
-        })
-    } catch (error) {
-      console.log(error)
-      setLoading(false)
-    }
-  }, [])
 
   return (
     <div className='container'>
       <h1>Welcome to Pets <PetsIcon /></h1>
       <Routes>
-        <Route path='/' element={<Home pets={pets} />} />
+        <Route path='/' element={<Home />} />
         <Route path='/pets/create' element={<CreatePet />} />
         <Route path='/pets/edit/:id' element={<EditPet />} />
         <Route path='/pets/delete/:id' element={<DeletePet />} />
