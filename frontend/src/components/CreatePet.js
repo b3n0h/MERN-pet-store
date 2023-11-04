@@ -5,12 +5,14 @@ import axios from "axios"
 const CreatePet = () => {
   const [name, setName] = useState('')
   const [breed, setBreed] = useState('')
+  const [age, setAge] = useState(0)
   const [loading, setLoading] = useState(false)
 
   const handleSavePet = () => {
     const newPet = {
       name,
-      breed
+      breed,
+      age
     }
     setLoading(true)
     axios
@@ -33,6 +35,9 @@ const CreatePet = () => {
 
       <label>Breed</label>
       <input value={breed} onChange={(e) => setBreed(e.target.value)} type="text" />
+
+      <label>Age</label>
+      <input value={age} onChange={(e) => setAge(e.target.value)} type="number" min={1} />
       <button onClick={handleSavePet}>Create new pet</button>
     </div>
   )

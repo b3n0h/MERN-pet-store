@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PetCard from "../components/PetCard";
-import './Home.css'
+import classes from './Home.module.css'
 import CreatePet from "../components/CreatePet";
 import { useParams } from "react-router-dom";
 
 const Home = () => {
   const [pets, setPets] = useState([])
   const [loading, setLoading] = useState(false)
-  const { id } = useParams()
 
   useEffect(() => {
     setLoading(true)
@@ -25,7 +24,7 @@ const Home = () => {
   }, [pets])
 
   return (
-    <div className="homeContainer">
+    <div className={classes.homeContainer}>
       <CreatePet />
       <PetCard pets={pets} />
     </div>

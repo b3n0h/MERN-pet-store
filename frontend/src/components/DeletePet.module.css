@@ -2,4 +2,7 @@
   color: white;
   background-color: red;
   border-radius: 15px;
+  border: none;
+  padding: 15px;
+  width: 100px;
 }

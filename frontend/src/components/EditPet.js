@@ -7,6 +7,7 @@ import classes from './EditPet.module.css'
 const EditPet = () => {
   const [name, setName] = useState('')
   const [breed, setBreed] = useState('')
+  const [age, setAge] = useState(0)
 
   const { id } = useParams()
   const navigate = useNavigate()
@@ -17,6 +18,7 @@ const EditPet = () => {
       .then((response) => {
         setName(response.data.name)
         setBreed(response.data.breed)
+        setAge(response.data.age)
       })
       .catch((err) => {
         console.log(err)
@@ -26,7 +28,8 @@ const EditPet = () => {
   const handleEditPet = () => {
     const data = {
       name,
-      breed
+      breed,
+      age
     }
     axios
       .put(`http://localhost:5555/pets/${id}`, data)
@@ -43,6 +46,8 @@ const EditPet = () => {
       <input className={classes.editInput} value={name} onChange={(e) => setName(e.target.value)} type="text" />
       <label>Breed</label>
       <input className={classes.editInput} value={breed} onChange={(e) => setBreed(e.target.value)} type="text" />
+      <label>Age</label>
+      <input className={classes.editInput} value={age} onChange={(e) => setAge(e.target.value)} type="text" />
       <Link to='/'>
         <button onClick={handleEditPet}>Save</button>
       </Link>
