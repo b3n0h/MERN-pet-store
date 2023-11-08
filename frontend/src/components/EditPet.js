@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react"
 import axios from "axios"
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import classes from './EditPet.module.css'
 
@@ -10,7 +10,6 @@ const EditPet = () => {
   const [age, setAge] = useState(0)
 
   const { id } = useParams()
-  const navigate = useNavigate()
 
   useEffect(() => {
     axios

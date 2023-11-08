@@ -1,3 +1,7 @@
+.deleteContainer {
+  padding: 20px;
+}
+
 .deleteContainer > button {
   color: white;
   background-color: red;

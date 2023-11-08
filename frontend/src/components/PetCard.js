@@ -11,7 +11,9 @@ import { Link } from 'react-router-dom';
 export default function PetCard(props) {
   return (
     <React.Fragment>
-      <h2>Current Pets</h2>
+      <div className={classes.title}>
+        <h2>Current Pets</h2>
+      </div>
       <div className={classes.cardContainer}>
         {props.pets.map((pet, index) => {
           return <Card key={pet._id} className={classes.card} sx={{ width: 275, mr: 1, mb: 1 }}>
@@ -30,10 +32,10 @@ export default function PetCard(props) {
               </Typography>
               <CardActions sx={{ padding: '10px 0 0 0' }}>
                 <Link to={`/pets/edit/${pet._id}`}>
-                  <EditIcon sx={{ width: '20px', paddingRight: '10px' }} />
+                  <EditIcon className={classes.svg} sx={{ width: '20px', paddingRight: '10px' }} />
                 </Link>
                 <Link to={`/pets/delete/${pet._id}`}>
-                  <DeleteIcon sx={{ width: '20px', paddingRight: '10px' }} />
+                  <DeleteIcon className={classes.svg} sx={{ width: '20px', paddingRight: '10px' }} />
                 </Link>
               </CardActions>
             </CardContent>

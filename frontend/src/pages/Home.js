@@ -3,7 +3,6 @@ import axios from "axios";
 import PetCard from "../components/PetCard";
 import classes from './Home.module.css'
 import CreatePet from "../components/CreatePet";
-import { useParams } from "react-router-dom";
 
 const Home = () => {
   const [pets, setPets] = useState([])
@@ -24,10 +23,12 @@ const Home = () => {
   }, [pets])
 
   return (
-    <div className={classes.homeContainer}>
-      <CreatePet />
-      <PetCard pets={pets} />
-    </div>
+    <React.Fragment>
+      <div className={classes.homeContainer}>
+        <CreatePet />
+        {loading ? <PetCard pets={pets} /> : 'Fetching pets'}
+      </div>
+    </React.Fragment>
   )
 }
 

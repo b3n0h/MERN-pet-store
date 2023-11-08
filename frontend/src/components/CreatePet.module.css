@@ -10,4 +10,9 @@ input {
 
 button {
   width: fit-content;
+  background-color: #0d2c40;
+  border: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
 }

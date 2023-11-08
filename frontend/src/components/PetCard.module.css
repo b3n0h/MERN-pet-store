@@ -4,8 +4,17 @@
   flex-wrap: wrap;
 }
 
-svg {
-  color: black;
+.card { 
+  box-shadow: none;
+  border: 1px solid black;
+}
+
+.title {
+  margin-top: 40px;
+}
+
+.svg {
+  color: #0d2c40;
   padding-top: 10px
   /* width: 10px; */
 }
