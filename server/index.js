@@ -18,13 +18,13 @@ app.get('/', (req, res) => {
 app.use('/pets', petsRoute)
 
 mongoose
-.connect(mongoDBURL)
-.then(() => {
-  console.log('App connected to the database')
-  app.listen(PORT, () => {
-    console.log(`App is listening to port: ${PORT}`)
+  .connect(mongoDBURL)
+  .then(() => {
+    console.log('App connected to the database')
+    app.listen(PORT, () => {
+      console.log(`App is listening to port: ${PORT}`)
+    })
   })
-})
-.catch((err) => {
-  console.log(err)
-})
+  .catch((err) => {
+    console.log(err)
+  })

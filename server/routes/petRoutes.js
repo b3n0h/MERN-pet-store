@@ -3,17 +3,20 @@ import { Pet } from '../models/petModel.js'
 
 const router = express.Router()
 
+// create new pet
 router.post('/', async (req, res) => {
   try {
     if (
       !req.body.name ||
-      !req.body.breed
+      !req.body.breed ||
+      !req.body.age
     ) {
       return res.status(400).send({ message: 'Send all required fields: name and breed' })
     }
     const newPet = {
       name: req.body.name,
       breed: req.body.breed,
+      age: req.body.age
     }
     const pet = await Pet.create(newPet)
     return res.status(201).send(pet)
@@ -27,11 +30,23 @@ router.post('/', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const pets = await Pet.find({})
-    console.log(req.params)
     return res.status(200).json({
       count: pets.length,
       data: pets
     })
+  } catch (error) {
+    console.log(error)
+    res.status(500).send({ message: error.message })
+  }
+})
+
+// find pet by id
+router.get('/:id', async (req, res) => {
+  try {
+    const { id } = req.params
+    const pet = await Pet.findById(id)
+    return res.status(200).json(pet)
+
   } catch (error) {
     console.log(error)
     res.status(500).send({ message: error.message })
@@ -43,7 +58,8 @@ router.put('/:id', async (req, res) => {
   try {
     if (
       !req.body.name ||
-      !req.body.breed
+      !req.body.breed ||
+      !req.body.age
     ) {
       return res.status(400).send({ message: 'Send all required fields: name and breed' })
     }
@@ -55,7 +71,7 @@ router.put('/:id', async (req, res) => {
       return res.status(404).json({ message: 'Pet not found' })
     }
 
-    return res.status(200).send({ message: 'Pet updated successfully'}) 
+    return res.status(200).send({ message: 'Pet updated successfully' })
   } catch (error) {
     console.log(error)
     res.status(500).send({ message: error.message })
@@ -65,7 +81,7 @@ router.put('/:id', async (req, res) => {
 // // delete a pet
 router.delete('/:id', async (req, res) => {
   try {
-    const {id} = req.params
+    const { id } = req.params
     const result = await Pet.findByIdAndDelete(id)
 
     if (!result) {
