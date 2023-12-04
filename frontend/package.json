@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://b3n0h.github.io/MERN-pet-store",
+  "homepage": "https://b3n0h.github.io/MERN-pet-store/frontend/public/index.html",
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
